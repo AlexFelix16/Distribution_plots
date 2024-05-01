@@ -1,6 +1,5 @@
 from scipy.stats import binom
 import matplotlib.pyplot as plt
-from math import factorial as fact
 
 def float_to_string(num):
     """
