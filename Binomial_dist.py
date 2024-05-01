@@ -1,6 +1,7 @@
 from scipy.stats import binom
 import matplotlib.pyplot as plt
 
+
 def float_to_string(num):
     """
     Convert a float number to a string, replacing the decimal point with the word "point". This simplifies
@@ -21,6 +22,7 @@ def float_to_string(num):
 
     # Return a string with the word "point" in between
     return integer + " point " + decimal
+
 
 def mut_graph(n, p, x):
     """ Calculates the distribituion of the number of mutations per DNA
@@ -51,11 +53,11 @@ def mut_graph(n, p, x):
     plt.xlabel('# of Mutations per RNA Molecule')
     plt.ylabel('Fraction')
     plt.grid(color='black', linestyle='--', linewidth=0.2, axis="y")
-    title = ('Mut dist at ' + str(round((100*p),3))+ '% mut rate for ' + str(n) + " nt long seq")
+    title = ('Mut dist at ' + str(round((100*p), 3)) + '% mut rate for ' + str(n) + " nt long seq")
     plt.title(title)
     plt.tight_layout()
     filename = 'Error dist at ' + float_to_string(p) + ' percent mut rate for 450 nt long DNA'
-    plt.savefig(fname = filename, dpi=300, transparent=True, bbox_inches='tight')
+    plt.savefig(fname=filename, dpi=300, transparent=True, bbox_inches='tight')
     print(dist)
 
 
