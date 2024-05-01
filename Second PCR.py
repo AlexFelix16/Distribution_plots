@@ -13,6 +13,10 @@ def float_to_string(num):
     Returns:
     str: The converted string.
     """
+    # Check if the number is an integer
+    if num.is_integer():
+        return str(int(num))
+
     # Split the float into its integer and decimal parts
     integer, decimal = str(num).split('.')
 

@@ -1,29 +1,23 @@
-from scipy.stats import hypergeom
-import time
 
-m = 10**12
-n = 10
-x = m/4
+def float_to_string(num):
+    """
+    Convert a float number to a string, replacing the decimal point with the word "point". This simplifies
+    automatically generating file names for the figures
 
-start_time = time.time()
-test = hypergeom.pmf(0 ,m, n, x)
-end_time = time.time()
+    Parameters:
+    num (float): The float number to convert.
 
-# total time taken
-print("Execution time of the program is", end_time - start_time, "sec.")
-print(test)
+    Returns:
+    str: The converted string.
+    """
+    # Check if the number is an integer
+    if num.is_integer():
+        return str(int(num))
 
-def test_plot(x,y):
-    plt.figure(figsize=(3.5, 2))
-    # X-axis is the r_values, while y axis is their probabilities
-    x_axis=len(x)
-    y_axis=len(y)
-    plt.bar(x, y, align='center', edgecolor='black', color='blue')
-    plt.xlabel('Number of copies in sample')
-    plt.ylabel('Probability of')
-    plt.grid(color='black', linestyle='--', linewidth=0.2, axis="y")
-    # title = ('Mut dist at ' + str(100*p) + '% mut rate for ' + str(n) + " nt long seq")
-    # plt.title(title)
-    plt.tight_layout()
-    filename = ('Probability of Number of copies in sample for n=' + str(n) + ' m=' + str(m) + ' x=' + str(x))
-    plt.savefig(filename, dpi=400, transparent=True, bbox_inches='tight')
+    # Split the float into its integer and decimal parts
+    integer, decimal = str(num).split('.')
+
+    # Return a string with the word "point" in between
+    return integer + " point " + decimal
+
+print(float_to_string(9))
