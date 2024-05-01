@@ -2,6 +2,7 @@ from scipy.stats import hypergeom
 import matplotlib.pyplot as plt
 import time
 
+
 def float_to_string(num):
     """
     Convert a float number to a string, replacing the decimal point with the word "point". This simplifies
@@ -22,6 +23,7 @@ def float_to_string(num):
 
     # Return a string with the word "point" in between
     return integer + " point " + decimal
+
 
 def hypergeom_graph(n, m, x):
     """ Calculates the distribituion of the number of mutations per DNA
@@ -68,5 +70,5 @@ def hypergeom_graph(n, m, x):
     # total time taken
     print("Execution time of the program is", end_time - start_time, "sec.")
 
-hypergeom_graph(10**12, 2.5*10**11, 10)
 
+hypergeom_graph(10**12, 2.5*10**11, 10)
