@@ -1,5 +1,6 @@
 from scipy.stats import hypergeom
 import matplotlib.pyplot as plt
+import pandas as pd
 import time
 
 
@@ -69,5 +70,10 @@ def hypergeom_graph(n, m, x):
     # total time taken
     print("Execution time of the program is", end_time - start_time, "sec.")
 
+    # Saves the calculated distribution into a .csv file with the same filename as the plot
+    table = pd.DataFrame(list(zip(x_values, dist)),
+                         columns=['Copies', 'Probability'])
+
+    table.to_csv(filename + '.csv', index=False)
 
 hypergeom_graph(100, 25, 5)
