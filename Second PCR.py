@@ -45,14 +45,13 @@ def hypergeom_graph(n, m, x):
     start_time = time.time()
 
     # defining list of x values, nucleotides 1 to n
-    x_values = list(range(x + 1))
-    # The probability of having r number of mutations per molecule
+    x_values = list(range(x+1))
+    # The probability of having i number of mutations per molecule
     dist = [hypergeom.pmf(i, n, m, x) for i in x_values]
-
     # Choosing a size for the graph
     plt.figure(figsize=(3.5, 2))
     # X-axis is the r_values, while y axis is their probabilities
-    plt.bar(x_values[0:x], dist[0:x],
+    plt.bar(x_values, dist,
             align='center', edgecolor='black', color='blue')
     plt.xlabel('Number of copies in sample')
     plt.ylabel('Probability of')
@@ -71,4 +70,4 @@ def hypergeom_graph(n, m, x):
     print("Execution time of the program is", end_time - start_time, "sec.")
 
 
-hypergeom_graph(10**12, 2.5*10**11, 10)
+hypergeom_graph(100, 25, 5)
