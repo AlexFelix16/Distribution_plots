@@ -48,7 +48,7 @@ def hypergeom_graph(n, m, x):
     # defining list of x values, nucleotides 1 to n
     x_values = list(range(x+1))
     # The probability of having i number of mutations per molecule
-    dist = [hypergeom.pmf(i, n, m, x) for i in x_values]
+    dist = [hypergeom.pmf(i, round(n), round(m), x) for i in x_values]
     # Choosing a size for the graph
     plt.figure(figsize=(3.5, 2))
     # X-axis is the r_values, while y axis is their probabilities
@@ -76,4 +76,4 @@ def hypergeom_graph(n, m, x):
 
     table.to_csv(filename + '.csv', index=False)
 
-hypergeom_graph(100, 25, 5)
+hypergeom_graph(8.6*10**12, 2.15*10**12, 9)
